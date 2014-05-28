@@ -1,0 +1,19 @@
+ul.slides li a{display:block;}
+
+.leiaMais {
+	background-image: url("../css/images/leiamais.png");
+	background-position: left center;
+	background-repeat: no-repeat;
+	color: #999999;
+	font-family: "Century Gothic",Tahoma,Verdana,Arial;
+	font-size: 14px;
+	font-weight: normal;
+	margin-right: 5px;
+	padding-left: 15px;
+}
+
+#slideshowDisplayNav{
+	bottom: -24px;
+	position: absolute;
+	right: -9px;
+}

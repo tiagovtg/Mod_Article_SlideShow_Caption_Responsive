@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="1.6" client="site" method="upgrade">
+    <name>Slide Show Responsive para Artigos por Categoria</name>
+    <author>Tiago Garcia</author>
+    <creationDate>April 2013</creationDate>
+    <copyright>Copyright (C) 2013</copyright>
+    <license>GNU General Public License version 2 ou later</license>
+    <authorEmail>tiagovtg@gmail.com</authorEmail>
+    <version>3.0.3</version>
+    <description>A joomla responsive image slider module. Choice one category of articles and put title, introtexts, images and links.</description>
+    <files>
+        <filename>mod_articles_slideshow.xml</filename>
+        <filename module="mod_articles_slideshow">mod_articles_slideshow.php</filename>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+        <folder>assets</folder>
+        <folder>language</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="catid" type="category" extension="com_content" multiple="true" default="" size="10" label="JCATEGORY" description="MOD_ARTICLES_SLIDESHOW_FIELD_CATEGORY_DESC">
+                    <option value="">JOPTION_ALL_CATEGORIES</option>
+                </field>
+
+                <field name="caption_titulo" class="btn-group" type="radio" default="1" label="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_TITULO_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_TITULO_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="caption_texto" class="btn-group" type="radio" default="1" label="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_TEXTO_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_TEXTO_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="caption_link" class="btn-group" type="radio" default="0" label="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_LINK_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_CAPTION_LINK_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+
+                <field name="count" type="text" default="5" label="MOD_ARTICLES_SLIDESHOW_FIELD_ITEMS_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_ITEMS_DESC" />
+
+
+                <field name="uselinks" class="btn-group" type="radio" default="1" label="MOD_ARTICLES_SLIDESHOW_FIELD_USELINKS_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_USELINKS_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="link_artigo_externo" class="btn-group" type="radio" default="1" label="MOD_ARTICLES_SLIDESHOW_FIELD_LINK_ARTIGO_EXTERNO_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_LINK_ARTIGO_EXTERNO_DESC">
+                    <option value="1">Artigos</option>
+                    <option value="0">LinkA</option>
+                </field>
+
+                <field name="categoria_link" class="btn-group" type="radio" default="0" label="MOD_ARTICLES_SLIDESHOW_FIELD_CATEGORIA_LINK_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_CATEGORIA_LINK_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="ordering" type="list" default="a.ordering" label="MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_DESC">
+                    <option value="a.publish_up">MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_PUBLISHED_DATE</option>
+                    <option value="a.created">MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_CREATED_DATE</option>
+                    <option value="a.ordering">MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_ORDERING</option>
+                    <option value="rand()">MOD_ARTICLES_SLIDESHOW_FIELD_ORDERING_RANDOM</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="moreoptions" label="Personalizadas">
+                <field name="moduleclass_sfx" type="text" label="Tamanho do Span" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field name="load_jquery" class="btn-group" type="radio" default="0" label="Habilitar jQuery 1.7.2?" description="Turn on ou off inlcuded jQuery. Will also call in a noconflict script because we're lovely here at Code7.">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="fadeorslide" class="btn-group" type="radio" default="0" label="Fade ou Slide?" description="Choose whether the slider will fade ou slide between slides">
+                    <option value="0">Slide</option>
+                    <option value="1">Fade</option>
+                </field>
+                <field name="directionNav" class="btn-group" type="radio" default="0" label="Usar navegadores de direção?" description="Turn on ou off left/right buttons">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="controlNav" class="btn-group" type="radio" default="1" label="Usar controle de navegação?" description="Turn on ou off underside control blobs">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="keyboardNav" class="btn-group" type="radio" default="0" label="Usar teclado de navegação?" description="Turn on ou off left and right arrow control of slider">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="direction" class="btn-group" type="radio" default="0" label="Direção: Vertical ou Horizontal" description="Slider images go veritcally ou horizontally">
+                    <option value="1">Vertical</option>
+                    <option value="0">Horizontal</option>
+                </field>
+                <!-- <field name="height" type="text" default="360" label="MOD_ARTICLES_SLIDESHOW_FIELD_HEIGHT_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_HEIGHT_DESC" /> -->
+                <!-- <field name="width" type="text" default="960" label="MOD_ARTICLES_SLIDESHOW_FIELD_WIDTH_LABEL" description="MOD_ARTICLES_SLIDESHOW_FIELD_WIDTH_DESC" /> -->
+                <field name="slidespeed" type="text" default="7000" label="Tempo do slide na tela em ms" description="Amount of time a slide remains on screen in milliseconds" />
+                <field name="animatespeed" type="text" default="600" label="Velocidade de animação do slide em ms" description="Amount of time a slide transition takes in milliseconds" />
+                <field name="randomorder" class="btn-group" type="radio" default="0" label="Ordem randômica?" description="Slider images in random order?">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+                <field name="cachemode" type="hidden" default="itemid">
+                    <option value="itemid" />
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
